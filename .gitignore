@@ -1,0 +1,18 @@
+# Ignore .env files containing sensitive information
+.env
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build output directories
+dist/
+build/
+
+# Other files/folders you may want to ignore
