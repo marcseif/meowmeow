@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/create-checkout-session", async (req, res) => {
-  const { amount, description } = req.body; // Extract the amount and description from the request body
+  const {name, amount, description } = req.body; // Extract the amount and description from the request body
   
   try {
     const session = await stripe.checkout.sessions.create({
@@ -25,8 +25,8 @@ app.post("/create-checkout-session", async (req, res) => {
             currency: "aud",
             unit_amount: Math.round(amount * 100),
             product_data: {
-              name: "PayolaPal Boost",
-              description: "I am testing a custom description rn", // Set the rank change summary as the description
+              name: name,
+              description: description, // Set the rank change summary as the description
             },
           },
           quantity: 1,
