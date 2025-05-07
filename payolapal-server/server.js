@@ -15,6 +15,7 @@ app.use(express.json());
 app.post("/create-checkout-session", async (req, res) => {
   const { amount, description } = req.body; // Extract the amount and description from the request body
 
+  console.log("Received description:", description);
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
